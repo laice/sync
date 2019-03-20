@@ -1233,8 +1233,8 @@ function ioServerConnect(socketConfig) {
         }
     });
 
-    let noport = chosenServer.url.split(':');
-    chosenServer.url = noport[0] + noport[1];
+    // let noport = chosenServer.split(':');
+    // chosenServer = noport[0] + noport[1];
 
     console.log("Connecting to " + JSON.stringify(chosenServer));
 
