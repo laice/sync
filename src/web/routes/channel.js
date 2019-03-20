@@ -19,8 +19,7 @@ export default function initialize(app, ioConfig, chanPath) {
 
         sendPug(res, 'channel', {
             channelName: req.params.channel,
-            sioSource: `https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js`
-            //sioSource: `${socketBaseURL}/socket.io/socket.io.js`
+            sioSource: `${socketBaseURL}/socket.io/socket.io.js`
         });
     });
 }

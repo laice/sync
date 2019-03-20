@@ -1293,8 +1293,7 @@ function checkLetsEncrypt(socketConfig, nonLetsEncryptError) {
     }
 
     $.ajax({
-        //url: servers[0].url + "/socket.io/socket.io.js",
-        url: "https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js",
+        url: servers[0].url + "/socket.io/socket.io.js",
         dataType: "script",
         timeout: 10000
     }).done(function () {
