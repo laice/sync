@@ -4,6 +4,7 @@ var fs = require("graceful-fs");
 var path = require("path");
 var sio = require("socket.io");
 var db = require("../database");
+var Config = require("../config");
 import * as ChannelStore from '../channel-storage/channelstore';
 import { ChannelStateSizeError } from '../errors';
 import { EventEmitter } from 'events';
@@ -69,7 +70,17 @@ class ReferenceCounter {
                         ` (channel: ${this.channelName})`);
                 this.refCount = this.channel.users.length;
             } else {
-                this.channel.emit("empty");
+                var pcu = Config.get("permanent-channel-users");
+                var isExempt = false;
+                for (var i = 0; i < pcu.length; i++) {
+                    var u = pcu[i];
+                    if (this.channel.ownerName === u) {
+                        isExempt = true;
+                    }
+                }
+                if (!isExempt) {
+                    this.channel.emit("empty");
+                }
             }
         }
     }

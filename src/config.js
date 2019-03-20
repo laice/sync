@@ -108,7 +108,8 @@ var defaults = {
     "twitch-client-id": null,
     poll: {
         "max-options": 50
-    }
+    },
+    "permanent-channel-users": []
 };
 
 /**
