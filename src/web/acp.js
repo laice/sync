@@ -38,7 +38,7 @@ function handleAcp(req, res, _user) {
 
     sendPug(res, "acp", {
         ioServers: JSON.stringify(ioServers),
-        sioSource: `${chosenServer.url}/socket.io/socket.io.js`
+        sioSource: `https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js`
     });
 }
 
